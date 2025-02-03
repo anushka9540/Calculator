@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     
+   <table cellspacing="10px">
+
+        <tr>
+            <td colspan="4" id="res"><input type="text" id="a" disabled></td>
+        </tr>
+
+        <tr class="op">
+            <td><input type="button" value="+" onclick="pick('+')"></td>
+            <td><input type="button" value="-" onclick="pick('-')"></td>
+            <td><input type="button" value="*" onclick="pick('*')"></td>
+            <td><input type="button" value="/" onclick="pick('/')"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="7" onclick="pick(7)"></td>
+            <td><input type="button" value="8" onclick="pick(8)"></td>
+            <td><input type="button" value="9" onclick="pick(9)"></td>
+            <td rowspan="4"><input type="button" value="=" onclick="calculate()" id="eql"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="4" onclick="pick(4)"></td>
+            <td><input type="button" value="5" onclick="pick(5)"></td>
+            <td><input type="button" value="6" onclick="pick(6)"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="1" onclick="pick(1)"></td>
+            <td><input type="button" value="2" onclick="pick(2)"></td>
+            <td><input type="button" value="3" onclick="pick(3)"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="0" onclick="pick(0)"></td>
+            <td><input type="button" value="." onclick="pick('.')"></td>
+            <td><input type="button" value="C" onclick="clearInput()" id="c"></td>
+        </tr>
+
+   </table>
+
+
+   <script src="./fun.js"></script>
 </body>
 </html>

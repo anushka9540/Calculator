@@ -1,0 +1,87 @@
+* {
+
+    box-sizing: border-box;
+}
+
+input[type="button"] {
+
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: black;
+    color: white;
+    background-color: rgb(60, 57, 57);
+    border-radius: 50%;
+}
+
+input[type="button"]:hover {
+    background-color: grey;
+}
+
+#eql {
+    height: 260px;
+    border-radius: 10px;
+}
+
+#eql:hover {
+    background-color: rgb(121, 162, 183);
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 80px;
+    height: 400px;
+    width: 300px;
+    background-color: black;
+    border-radius: 15px;
+}
+
+#a {
+    height: 90px;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: xx-large;
+}
+
+td {
+    background-color: rgb(60, 57, 57);
+    border-radius: 50%;
+
+}
+
+#c:hover {
+    background-color: rgb(215, 48, 48);
+}
+
+#res {
+    background-color: black;
+}
+
+.op td {
+    height: 55px;
+}
+
+@media (max-width: 600px) {
+    input[type="button"] {
+        font-size: 18px;
+        height: 50px;
+    }
+
+    input[type="text"] {
+        font-size: 22px;
+        height: 50px;
+    }
+
+    table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    input[type="button"] {
+        font-size: 16px;
+        height: 45px;
+    }
+}
