@@ -4,7 +4,7 @@ let buttons = document.querySelectorAll('button');
 let string = "";
 let operators = ["*", "/", "+", "-"];
 
-// Safe evaluation function
+
 function safeEval(expression) 
 {
     try 
@@ -38,30 +38,30 @@ buttons.forEach(button => {
             string = string.slice(0, -1);
             input.value = string;
         } 
-        // Allow '-' at the start but restrict other operators
+       
         else if (operators.includes(value)) 
         {
             if (string === "") 
             {
                 if (value === "-") 
                 {
-                    string += value;  // Allow '-' at the start
+                    string += value; 
                 }
             } 
             else if (!operators.includes(lastChar)) 
             {
-                string += value;  // Add operator if last char is not an operator
+                string += value;  
             } 
             else 
             {
-                string = string.slice(0, -1) + value;  // Replace the last operator
+                string = string.slice(0, -1) + value;  
             }
             input.value = string;
         } 
-        // Handle decimal point (.) - allow only one per number segment
+       
         else if (value === '.') 
         {
-            // Find the current number segment after the last operator
+           
             const lastOperatorIndex = Math.max(
                 string.lastIndexOf('+'),
                 string.lastIndexOf('-'),
@@ -71,10 +71,10 @@ buttons.forEach(button => {
 
             const currentNumber = string.slice(lastOperatorIndex + 1);
 
-            // Allow '.' only if it's not already present in the current number
+          
             if (!currentNumber.includes('.')) 
             {
-                // Prevent starting with '.' without a leading zero
+               
                 if (currentNumber === "") 
                 {
                     string += "0.";
@@ -86,7 +86,7 @@ buttons.forEach(button => {
                 input.value = string;
             }
         } 
-        // Handle numbers
+      
         else 
         {
             string += value;
