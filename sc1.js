@@ -23,21 +23,21 @@ function evaluateExpression(expression) {
       case '*':
         return a * b;
       case '/':
-        return b !== 0 ? a / b : 'Error';
+        return b !== 0 ? a / b : 'Infinity';
       default:
         return 0;
     }
   }
 
-  // Parsing numbers and operators
+ 
   while (i < expression.length) {
     const char = expression[i];
 
     if (!isNaN(char) || char === '.') {
-      num += char; // Build the current number
+      num += char; 
     } else if (operators.includes(char)) {
       if (char === '-' && (i === 0 || operators.includes(expression[i - 1]))) {
-        num += char; // Treat as part of a negative number
+        num += char;
       } else {
         if (num !== '') {
           numbers.push(num);
@@ -51,18 +51,18 @@ function evaluateExpression(expression) {
   }
   if (num !== '') numbers.push(num);
 
-  // Apply high precedence operators first (* and /)
+ 
   for (let j = 0; j < ops.length; j++) {
     if (ops[j] === '*' || ops[j] === '/') {
       const result = applyOperation(numbers[j], numbers[j + 1], ops[j]);
       if (result === 'Error') return 'Error';
       numbers.splice(j, 2, result);
       ops.splice(j, 1);
-      j--; // Adjust index after modification
+      j--; 
     }
   }
 
-  // Apply remaining operators (+ and -)
+ 
   while (ops.length) {
     const result = applyOperation(numbers[0], numbers[1], ops[0]);
     if (result === 'Error') return 'Error';
@@ -89,47 +89,47 @@ buttons.forEach((button) => {
       string = string.slice(0, -1);
       input.value = string;
     } else if (operators.includes(value)) {
-      // If the string is empty, allow "-" at the start
+     
       if (string === '') {
         if (value === '-') {
-          string += value; // Allow '-' at the start
+          string += value; 
         }
       } else if (!operators.includes(lastChar)) {
-        string += value; // Add operator if last char is not an operator
+        string += value; 
       } else {
-        // Replace consecutive operators with the latest one
+        
         string = string.replace(/([*+/\-]){2,}$/, value);
       }
 
-      // If "-" is pressed after "*" or "/", don't replace "*" or "/" with "-"
+      
       if (value === '-' && (lastChar === '*' || lastChar === '/')) {
-        string += value; // Just append "-" after * or /
+        string += value; 
       }
 
-      // Replace * with / or + (only)
+     
       if (value === '*' && (lastChar === '/' || lastChar === '+')) {
-        string = string.slice(0, -1) + '*'; // Replace / or + with *
+        string = string.slice(0, -1) + '*'; 
       }
 
-      // Replace / with * or + (only)
+     
       if (value === '/' && (lastChar === '*' || lastChar === '+')) {
-        string = string.slice(0, -1) + '/'; // Replace * or + with /
+        string = string.slice(0, -1) + '/'; 
       }
 
-      // Replace + with - or * or / (only)
+      
       if (
         value === '+' &&
         (lastChar === '-' || lastChar === '*' || lastChar === '/')
       ) {
-        string = string.slice(0, -1) + '+'; // Replace - or * or / with +
+        string = string.slice(0, -1) + '+';
       }
 
-      // Replace - with * or / or + (only)
+     
       if (
         value === '-' &&
         (lastChar === '*' || lastChar === '/' || lastChar === '+')
       ) {
-        string = string.slice(0, -1) + '-'; // Replace * or / or + with -
+        string = string.slice(0, -1) + '-'; 
       }
 
       input.value = string;
@@ -156,7 +156,7 @@ buttons.forEach((button) => {
       input.value = string;
     }
 
-    // Ensure the input field scrolls to the right
+   
     input.scrollLeft = input.scrollWidth;
   });
 });
